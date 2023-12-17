@@ -42,6 +42,12 @@ func NewErrorEnc(status Status) *Enc {
 	}
 }
 
+// WithMessage puts message to Enc.
+func (e *Enc) WithMessage(message string) *Enc {
+	e.Message = message
+	return e
+}
+
 // WithExtra puts extra data to Enc.
 func (e *Enc) WithExtra(extra map[string]interface{}) *Enc {
 	e.Extra = extra

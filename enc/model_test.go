@@ -46,3 +46,10 @@ func TestNewErrorEnc2(t *testing.T) {
 	assert.Equal(t, StatusContentTypeNotSupported.Message, enc.Message)
 	assert.Equal(t, nil, enc.Data)
 }
+
+func TestEnc_WithMessage(t *testing.T) {
+	enc := NewSuccessEnc("My Data").WithMessage("My Message")
+	t.Logf("%+v\n", enc)
+	assert.Equal(t, "My Message", enc.Message)
+	assert.Equal(t, "My Data", enc.Data)
+}
